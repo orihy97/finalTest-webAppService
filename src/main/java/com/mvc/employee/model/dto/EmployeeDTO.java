@@ -1,174 +1,104 @@
 package com.mvc.employee.model.dto;
 
-import java.sql.Date;
+class MemberDTO {
+    private int memberCode;
+    private String memberName;
+    private String birthDate;
+    private String divisionCode;
+    private String detailInfo;
+    private String contact;
+    private int teamCode;
+    private String activeStatus;
 
-public class EmployeeDTO implements java.io.Serializable {
-
-    private String empId;
-    private String empName;
-    private String empNo;
-    private String email;
-    private String phone;
-    private String deptCode;
-    private String jobCode;
-    private String salLevel;
-    private int salary;
-    private double bonus;
-    private String managerId;
-    private Date hireDate;
-    private Date entDate;
-    private String entYn;
-
-    public EmployeeDTO() {
+    public MemberDTO() {
     }
 
-    public EmployeeDTO(String empId, String empName, String empNo, String email, String phone, String deptCode, String jobCode, String salLevel, int salary, double bonus, String managerId, Date hireDate, Date entDate, String entYn) {
-        super();
-        this.empId = empId;
-        this.empName = empName;
-        this.empNo = empNo;
-        this.email = email;
-        this.phone = phone;
-        this.deptCode = deptCode;
-        this.jobCode = jobCode;
-        this.salLevel = salLevel;
-        this.salary = salary;
-        this.bonus = bonus;
-        this.managerId = managerId;
-        this.hireDate = hireDate;
-        this.entDate = entDate;
-        this.entYn = entYn;
+    public MemberDTO(int memberCode, String memberName, String birthDate, String divisionCode, String detailInfo, String contact, int teamCode, String activeStatus) {
+        this.memberCode = memberCode;
+        this.memberName = memberName;
+        this.birthDate = birthDate;
+        this.divisionCode = divisionCode;
+        this.detailInfo = detailInfo;
+        this.contact = contact;
+        this.teamCode = teamCode;
+        this.activeStatus = activeStatus;
     }
 
-    public String getEmpId() {
-        return empId;
+    public int getMemberCode() {
+        return memberCode;
     }
 
-    public void setEmpId(String empId) {
-        this.empId = empId;
+    public void setMemberCode(int memberCode) {
+        this.memberCode = memberCode;
     }
 
-    public String getEmpName() {
-        return empName;
+    public String getMemberName() {
+        return memberName;
     }
 
-    public void setEmpName(String empName) {
-        this.empName = empName;
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
     }
 
-    public String getEmpNo() {
-        return empNo;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setEmpNo(String empNo) {
-        this.empNo = empNo;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDivisionCode() {
+        return divisionCode;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDivisionCode(String divisionCode) {
+        this.divisionCode = divisionCode;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getDetailInfo() {
+        return detailInfo;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setDetailInfo(String detailInfo) {
+        this.detailInfo = detailInfo;
     }
 
-    public String getDeptCode() {
-        return deptCode;
+    public String getContact() {
+        return contact;
     }
 
-    public void setDeptCode(String deptCode) {
-        this.deptCode = deptCode;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
-    public String getJobCode() {
-        return jobCode;
+    public int getTeamCode() {
+        return teamCode;
     }
 
-    public void setJobCode(String jobCode) {
-        this.jobCode = jobCode;
+    public void setTeamCode(int teamCode) {
+        this.teamCode = teamCode;
     }
 
-    public String getSalLevel() {
-        return salLevel;
+    public String getActiveStatus() {
+        return activeStatus;
     }
 
-    public void setSalLevel(String salLevel) {
-        this.salLevel = salLevel;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public double getBonus() {
-        return bonus;
-    }
-
-    public void setBonus(double bonus) {
-        this.bonus = bonus;
-    }
-
-    public String getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(String managerId) {
-        this.managerId = managerId;
-    }
-
-    public Date getHireDate() {
-        return hireDate;
-    }
-
-    public void setHireDate(Date hireDate) {
-        this.hireDate = hireDate;
-    }
-
-    public Date getEntDate() {
-        return entDate;
-    }
-
-    public void setEntDate(Date entDate) {
-        this.entDate = entDate;
-    }
-
-    public String getEntYn() {
-        return entYn;
-    }
-
-    public void setEntYn(String entYn) {
-        this.entYn = entYn;
+    public void setActiveStatus(String activeStatus) {
+        this.activeStatus = activeStatus;
     }
 
     @Override
     public String toString() {
-        return "EmployeeDTO{" +
-                "empId='" + empId + '\'' +
-                ", empName='" + empName + '\'' +
-                ", empNo='" + empNo + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", deptCode='" + deptCode + '\'' +
-                ", jobCode='" + jobCode + '\'' +
-                ", salLevel='" + salLevel + '\'' +
-                ", salary=" + salary +
-                ", bonus=" + bonus +
-                ", managerId='" + managerId + '\'' +
-                ", hireDate=" + hireDate +
-                ", entDate=" + entDate +
-                ", entYn='" + entYn + '\'' +
+        return "MemberDTO{" +
+                "memberCode=" + memberCode +
+                ", memberName='" + memberName + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", divisionCode='" + divisionCode + '\'' +
+                ", detailInfo='" + detailInfo + '\'' +
+                ", contact='" + contact + '\'' +
+                ", teamCode=" + teamCode +
+                ", activeStatus='" + activeStatus + '\'' +
                 '}';
     }
 }
