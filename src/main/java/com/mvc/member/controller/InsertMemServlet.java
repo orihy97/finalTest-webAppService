@@ -1,6 +1,7 @@
 package com.mvc.member.controller;
 
 import com.mvc.member.model.dto.MemberDTO;
+import com.mvc.member.model.service.MemberService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,38 +17,35 @@ public class InsertMemServlet extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
-        String memName = request.getParameter("memName");
-        String memNo = request.getParameter("memNo");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String deptCode = request.getParameter("deptCode");
-        String jobCode = request.getParameter("jobCode");
-        String salLevel	= request.getParameter("salLevel");
+        String memberName = request.getParameter("memberName");
+        String memberCode = request.getParameter("memCode");
+        String birthDate = request.getParameter("birthDate");
+        String divisionCode = request.getParameter("divisionCode");
+        String detailInfo = request.getParameter("detailInfo");
+        String contact = request.getParameter("contact");
+        String teamCode	= request.getParameter("teamCode");
+        String activeStatus	= request.getParameter("activeStatus");
         int salary = Integer.parseInt(request.getParameter("salary"));
         double bonus = Double.parseDouble(request.getParameter("bonus"));
-        String managerId = request.getParameter("managerId");
         java.sql.Date hireDate = java.sql.Date.valueOf(request.getParameter("hireDate"));
 
         MemberService memberService = new MemberService();
-        String newMemId = memService.selectNewEmpId();
+        String newMemId = memberService.selectNewMemCode();
 
-        MemberDTO emp = new MemberDTO();
-        if(newMemId != null) emp.setMemId(newMemId);
-        emp.setEmpName(memName);
-        emp.setEmpNo(memNo);
-        emp.setEmail(email);
-        emp.setPhone(phone);
-        emp.setDeptCode(deptCode);
-        emp.setJobCode(jobCode);
-        emp.setSalLevel(salLevel);
-        emp.setSalary(salary);
-        emp.setBonus(bonus);
-        emp.setManagerId(managerId);
-        emp.setHireDate(hireDate);
+        MemberDTO mem = new MemberDTO();
+        if(newMemId != null) mem.setMemberCode(newMemId);
+        mem.setMemberName(memberName);
+        mem.setMemberCode(memberCode);
+        mem.setBirthDate(birthDate);
+        mem.setDivisionCode(divisionCode);
+        mem.setDetailInfo(detailInfo);
+        mem.setContact(contact);
+        mem.setTeamCode(teamCode);
+        mem.setActiveStatus(activeStatus);
 
-        System.out.println("insert request emp : " + emp);
+        System.out.println("insert request mem : " + mem);
 
-        int result = empService.insertEmp(emp);
+        int result = memberService.insertMem(mem);
 
         String path = "";
         if(result > 0) {
@@ -55,7 +53,7 @@ public class InsertMemServlet extends HttpServlet {
 //			request.setAttribute("message", "신규 선수 등록에 성공하셨습니다.");
 //			response.sendRedirect(request.getContextPath() + "/WEB-INF/views/common/successPage.jsp");
 
-            request.setAttribute("successCode", "insertEmp");
+            request.setAttribute("successCode", "insertMem");
         } else {
             path = "/WEB-INF/views/common/errorPage.jsp";
             request.setAttribute("message", "신규 선수 등록에 실패하셨습니다.");

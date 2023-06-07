@@ -1,6 +1,7 @@
 package com.mvc.member.controller;
 
 import com.mvc.member.model.dto.MemberDTO;
+import com.mvc.member.model.service.MemberService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
 
 @WebServlet("/com/mvc/member/update")
 public class UpdateMemServlet extends HttpServlet {
@@ -17,11 +19,11 @@ public class UpdateMemServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         String memId = request.getParameter("memId");
-        java.sql.Date entDate = java.sql.Date.valueOf(request.getParameter("entDate"));
+        Date entDate = Date.valueOf(request.getParameter("entDate"));
 
         MemberDTO mem = new MemberDTO();
-        mem.setMemId(memId);
-        mem.setEntDate(entDate);
+        mem.setMemberName(memId);
+        mem.setContact(memId);
 
         int result = new MemberService().updateMem(mem);
 

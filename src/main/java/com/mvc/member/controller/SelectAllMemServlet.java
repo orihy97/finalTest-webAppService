@@ -1,6 +1,7 @@
 package com.mvc.member.controller;
 
 import com.mvc.member.model.dto.MemberDTO;
+import com.mvc.member.model.service.MemberService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,18 +16,18 @@ public class SelectAllMemServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        MemberService empService = new MemberService();
-        List<MemberDTO> empList = empService.selectAllEmp();
+        MemberService memService = new MemberService();
+        List<MemberDTO> memList = memService.selectAllMem();
 
-        for(MemberDTO emp : empList) {
-            System.out.println(emp);
+        for(MemberDTO mem : memList) {
+            System.out.println(mem);
         }
 
         /* 조회 결과 성공 여부에 따른 뷰 결정 */
         String path = "";
-        if(empList != null) {
+        if(memList != null) {
             path = "/WEB-INF/views/member/memberList.jsp";
-            request.setAttribute("empList", empList);
+            request.setAttribute("memList", memList);
         } else {
             path = "/WEB-INF/common/errorPage.jsp";
             request.setAttribute("message", "선수 목록 조회 실패!");
