@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/member-db" />
+                <property name="username" value="sahmyook" />
+                <property name="password" value="sahmyook" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/example/mapper/member-mapper.xml" />
+        INSERT INTO TEAM_INFO (TEAM_CODE, TEAM_NAME, TEAM_DETAIL, USE_YN) VALUES
+        (1, '진에어 그린윙스', '진에어 항공', 'N'),
+        (2, 'SKT T1', 'SK그룹', 'Y'),
+        (3, 'KT ROLLSTER', 'KT', 'Y'),
+        (4, '류호영과 아이들', '류장우', 'N');
+
+        INSERT INTO MEMBER_INFO (MEMBER_CODE, MEMBER_NAME, BIRTH_DATE, DIVISION_CODE, DETAIL_INFO, CONTACT, TEAM_CODE, ACTIVE_STATUS) VALUES
+        ('임요한', '19700101', '1', '테란', '010-1111-2222', 1, 'Y'),
+        ('홍진호', '19710101', '2', '저그', '010-2222-2222', 1, 'Y'),
+        ('박상혁', '19720101', '3', '프로토스', '010-3333-2222', 1, 'Y'),
+        ('강민', '19730101', '1', '테란', '010-4444-2222', 2, 'Y'),
+        ('이제동', '19740101', '2', '저그', '010-5555-2222', 2, 'Y'),
+        ('홍구', '19750101', '3', '프로토스', '010-6666-2222', 2, 'N'),
+        ('철구', '19760101', '1', '테란', '010-7777-2222', 3, 'Y'),
+        ('김봉준', '19770101', '2', '저그', '010-8888-2222', 3, 'Y'),
+        ('송병구', '19780101', '3', '프로토스', '010-9999-2222', 3, 'Y'),
+        ('하진혁', '19790101', '1', '테란', '010-1212-2222', 4, 'Y'),
+        ('강민기', '19800101', '2', '저그', '010-2323-2222', 4, 'Y'),
+        ('이승민', '19810101', '3', '프로토스', '010-3434-2222', 4, 'N');
+
+    </mappers>
+</configuration>

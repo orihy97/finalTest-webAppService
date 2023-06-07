@@ -28,6 +28,7 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation 'javax.servlet:jstl:1.2'
     implementation 'mysql:mysql-connector-java:8.0.28'
+    implementation 'org.mybatis:mybatis:3.5.6'
 }
 
 test {

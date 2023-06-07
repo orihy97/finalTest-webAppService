@@ -40,10 +40,9 @@
         (
         MEMBER_CODE
         , MEMBER_NAME
-        , MEMBER_GENDER
         , BIRTH_DATE
         , DIVISION_CODE
-        , MEMBER_ADDRESS
+        , DETAIL_INFO
         , CONTACT
         , TEAM_CODE
         , ACTIVE_STATUS
