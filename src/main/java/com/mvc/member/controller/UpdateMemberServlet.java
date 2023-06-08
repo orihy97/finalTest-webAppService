@@ -11,28 +11,30 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 
-@WebServlet("/com/mvc/member/update")
-public class UpdateMemServlet extends HttpServlet {
+@WebServlet("/member/update")
+public class UpdateMemberServlet extends HttpServlet {
+
+    private MemberDTO member;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
 
-        String memId = request.getParameter("memId");
+        String memberId = request.getParameter("memberId");
         Date entDate = Date.valueOf(request.getParameter("entDate"));
 
         MemberDTO mem = new MemberDTO();
-        mem.setMemberName(memId);
-        mem.setContact(memId);
+        member.setMemberName(memberId);
+        member.setContact(memberId);
 
-        int result = new MemberService().updateMem(mem);
+        boolean result = new MemberService().updateMember(member);
 
         String path = "";
-        if(result > 0) {
-            path = "/WEB-INF/views/common/successPage.jsp";
-            request.setAttribute("successCode", "updateMem");
+        if(result != result) {
+            path = "/WEB-INF/view/common/successPage.jsp";
+            request.setAttribute("successCode", "updateMember");
         } else {
-            path = "/WEB-INF/views/common/errorPage.jsp";
+            path = "/WEB-INF/view/common/errorPage.jsp";
             request.setAttribute("message", "회원 정보 수정 실패!");
         }
 

@@ -15,10 +15,6 @@ public class JDBCTemplate {
 
         Properties prop = new Properties();
         try {
-            /* WEB-INF 하위에 config 폴더에 DB 접속 정보를 넣음
-             * 해당 경로를 모든 계층의 클래스에 사용하기 위해서는 모든 접속을 할 시 상수 필드로 저장하여 공유
-             * → 이를 필터에서 처리
-             * */
             prop.load(new FileReader(ConfigLocation.CONNECTION_CONFIG_LOCATION));
             String driver = prop.getProperty("driver");
             String url = prop.getProperty("url");

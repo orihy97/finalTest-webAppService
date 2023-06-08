@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <entry key="selectMemByCode">
-        SELECT /* MemberDAO#selectMemByCode() */
+    <entry key="selectMemberByCode">
+        SELECT /* MemberDAO#selectMemberByCode() */
         MEMBER_CODE
         , MEMBER_NAME
-        , MEMBER_GENDER
         , BIRTH_DATE
         , DIVISION_CODE
-        , MEMBER_ADDRESS
+        , DETAIL_INFO
         , CONTACT
         , TEAM_CODE
         , ACTIVE_STATUS
@@ -20,21 +19,20 @@
         SELECT
         MEMBER_CODE
         , MEMBER_NAME
-        , MEMBER_GENDER
         , BIRTH_DATE
         , DIVISION_CODE
-        , MEMBER_ADDRESS
+        , DETAIL_INFO
         , CONTACT
         , TEAM_CODE
         , ACTIVE_STATUS
         FROM MEMBER_INFO
         WHERE ACTIVE_STATUS = 'Y'
     </entry>
-    <entry key="selectNewMemId">
+    <entry key="selectNewMemberId">
         SELECT LPAD(MAX(MEMBER_CODE) + 1, 3, '0') AS MEMBER_CODE
         FROM MEMBER_INFO;
     </entry>
-    <entry key="insertMem">
+    <entry key="insertMember">
         INSERT
         INTO MEMBER_INFO
         (
@@ -49,11 +47,11 @@
         )
         VALUES
         (
-        ?, ?, ?, ?, ?
+        ?, ?, ?, ?
         , ?, ?, ?
         )
     </entry>
-    <entry key="updateMem">
+    <entry key="updateMember">
         UPDATE
         MEMBER_INFO
         SET BIRTH_DATE = ?

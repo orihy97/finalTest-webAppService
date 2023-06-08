@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mvc.member.model.dao.MemberDAO">
+
+    <resultMap id="memberResultMap" type="com.mvc.member.model.dto.MemberDTO">
+        <id property="memberCode" column="MEMBER_CODE"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="launchDate" column="LAUNCH_DATE"/>
+        <result property="divisionCode" column="DIVISION_CODE"/>
+        <result property="detailInfo" column="DETAIL_INFO"/>
+        <result property="studentQuantity" column="STUDENT_QUANTITY"/>
+        <result property="contact" column="CONTACT"/>
+        <result property="teamCode" column="TEAM_CODE"/>
+        <result property="activeStatus" column="ACTIVE_STATUS"/>
+    </resultMap>
+
+    <select id="selectMemberById" resultMap="memberResultMap">
+        SELECT * FROM MEMBER_INFO WHERE MEMBER_CODE = #{memberId}
+    </select>
+
+    <select id="selectAllMembers" resultMap="memberResultMap">
+        SELECT * FROM MEMBER_INFO
+    </select>
+
+    <insert id="insertMember">
+        INSERT INTO MEMBER_INFO (MEMBER_NAME, BIRTH_DATE, DIVISION_CODE, DETAIL_INFO, CONTACT, TEAM_CODE, ACTIVE_STATUS)
+        VALUES (#{memberName}, #{birthDate}, #{divisionCode}, #{detailInfo}, #{contact}, #{teamCode}, #{activeStatus})
+    </insert>
+
+    <update id="updateMember">
+        UPDATE MEMBER_INFO
+        SET MEMBER_NAME = #{memberName},
+            BIRTH_DATE = #{birthDate},
+            DIVISION_CODE = #{divisionCode},
+            DETAIL_INFO = #{detailInfo},
+            CONTACT = #{contact},
+            TEAM_CODE = #{teamCode},
+            ACTIVE_STATUS = #{activeStatus}
+        WHERE MEMBER_CODE = #{memberCode}
+    </update>
+
+    <delete id="deleteMember">
+        DELETE FROM MEMBER_INFO WHERE MEMBER_CODE = #{memberCode}
+    </delete>
+
+</mapper>

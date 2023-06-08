@@ -9,24 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/com/com/mvc/member/delete")
-public class DeleteMemServlet extends HttpServlet {
+@WebServlet("/member/delete")
+public class DeleteMemberServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
 
-        String memId = request.getParameter("memId");
+        int memberId = Integer.parseInt(request.getParameter("memberId"));
 
-        int result = new MemberService().deleteMem(memId);
+        boolean result = new MemberService().deleteMember(memberId);
 
         String path = "";
-        if(result > 0) {
-            path = "/WEB-INF/views/common/successPage.jsp";
-            request.setAttribute("successCode", "deleteMem");
-        } else {
-            path = "/WEB-INF/views/common/errorPage.jsp";
+        if (result) {
+            path = "/WEB-INF/view/common/errorPage.jsp";
             request.setAttribute("message", "선수 삭제 실패!");
+        } else {
+            path = "/WEB-INF/view/common/successPage.jsp";
+            request.setAttribute("successCode", "deleteMember");
         }
 
         request.getRequestDispatcher(path).forward(request, response);

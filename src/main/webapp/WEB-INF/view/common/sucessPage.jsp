@@ -10,7 +10,7 @@
 
     let successMessage = '';
     let movePath = '';
-
+    console.log(${pageContext.servletContext.contextPath});
     switch(successCode) {
       case 'insertMem' :
         successMessage = 'ㅋㅋ신규 선수 등록 성공ㅋㅋ';

@@ -1,5 +1,7 @@
 package com.mvc.member.model.dto;
 
+import java.util.List;
+
 public class MemberDTO implements java.io.Serializable {
 
     private String teamCode;
@@ -11,7 +13,7 @@ public class MemberDTO implements java.io.Serializable {
     private String contact;
     private String activeStatus;
 
-    public MemberDTO(){
+    public MemberDTO() {
 
     }
 
@@ -41,7 +43,6 @@ public class MemberDTO implements java.io.Serializable {
     public void setMemberName(String memberName) {
         this.memberName = memberName;
     }
-
 
     public String getBirthDate() {
         return birthDate;
@@ -93,7 +94,7 @@ public class MemberDTO implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "MemDTO{" +
+        return "MemberDTO{" +
                 "memberCode='" + memberCode + '\'' +
                 ", memberName='" + memberName + '\'' +
                 ", birthDate='" + birthDate + '\'' +
@@ -103,5 +104,8 @@ public class MemberDTO implements java.io.Serializable {
                 ", teamCode='" + teamCode + '\'' +
                 ", activeStatus='" + activeStatus + '\'' +
                 '}';
+    }
+
+    public void setMemberCode(List<MemberDTO> newMemId) {
     }
 }

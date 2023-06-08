@@ -10,29 +10,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/com/mvc/member/select")
-public class SelectOneMemByIdServlet extends HttpServlet {
+@WebServlet("/member/select")
+public class SelectOneMemberByIdServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         /* 전달한 파라미터 꺼내기 */
-        String memId = request.getParameter("memId");
+        int memberId = Integer.parseInt(request.getParameter("memberId"));
 
-        System.out.println("memId : " + memId);
+        System.out.println("memberId : " + memberId);
 
         /* 사번을 이용해 사원 정보를 조회하는 비지니스 로직 호출 */
-        MemberService memService = new MemberService();
-        MemberDTO selectedMem = memService.selectOneMemByCode(memId);
+        MemberService memberService = new MemberService();
+        MemberDTO selectedMember = memberService.selectOneMemberById(memberId);
 
-        System.out.println("selectedMem : " + selectedMem);
+        System.out.println("selectedMember : " + selectedMember);
 
         /* 비지니스 로직 실행 결과에 따라 뷰 연결 */
         String path = "";
-        if(selectedMem != null) {
-            path = "/WEB-INF/views/member/showMemInfo.jsp";
-            request.setAttribute("selectedMem", selectedMem);
+        if(selectedMember != null) {
+            path = "/WEB-INF/view/member/showMemberInfo.jsp";
+            request.setAttribute("selectedMember", selectedMember);
         } else {
-            path = "/WEB-INF/views/common/errorPage.jsp";
+            path = "/WEB-INF/view/common/errorPage.jsp";
             request.setAttribute("message", "선수 정보 조회 실패!");
         }
 
