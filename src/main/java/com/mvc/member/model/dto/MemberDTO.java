@@ -106,6 +106,6 @@ public class MemberDTO implements java.io.Serializable {
                 '}';
     }
 
-    public void setMemberCode(List<MemberDTO> newMemId) {
+    public void setMemberCode(List<MemberDTO> newmemberCode) {
     }
 }

@@ -18,16 +18,16 @@
         <th>활동상태</th>
 
     </tr>
-    <c:forEach items="${ requestScope.memList }" var="mem">
+    <c:forEach items="${ requestScope.memberList }" var="member">
         <tr>
-            <td>${ mem.memberCode }</td>
-            <td>${ mem.memberName }</td>
-            <td>${ mem.birthDate }</td>
-            <td>${ mem.divisionCode }</td>
-            <td>${ mem.detailInfo }</td>
-            <td>${ mem.contact }</td>
-            <td>${ mem.teamCode }</td>
-            <td>${ mem.activeStatus }</td>
+            <td>${ member.memberCode }</td>
+            <td>${ member.memberName }</td>
+            <td>${ member.birthDate }</td>
+            <td>${ member.divisionCode }</td>
+            <td>${ member.detailInfo }</td>
+            <td>${ member.contact }</td>
+            <td>${ member.teamCode }</td>
+            <td>${ member.activeStatus }</td>
 
         </tr>
     </c:forEach>

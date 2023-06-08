@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <entry key="selectMemberByCode">
-        SELECT /* MemberDAO#selectMemberByCode() */
-        MEMBER_CODE
-        , MEMBER_NAME
-        , BIRTH_DATE
-        , DIVISION_CODE
-        , DETAIL_INFO
-        , CONTACT
-        , TEAM_CODE
-        , ACTIVE_STATUS
+    <entry key="selectMemberById">
+        SELECT *
         FROM MEMBER_INFO
-        WHERE ACTIVE_STATUS = 'Y'
-        AND MEMBER_CODE = ?
+        WHERE MEMBER_CODE=?
     </entry>
-    <entry key="selectAllMemList">
+    <entry key="selectAllMemberList">
         SELECT
-        MEMBER_CODE
-        , MEMBER_NAME
-        , BIRTH_DATE
-        , DIVISION_CODE
-        , DETAIL_INFO
-        , CONTACT
-        , TEAM_CODE
-        , ACTIVE_STATUS
+        *
         FROM MEMBER_INFO
-        WHERE ACTIVE_STATUS = 'Y'
+
     </entry>
-    <entry key="selectNewMemberId">
+    <entry key="selectNewmemberCode">
         SELECT LPAD(MAX(MEMBER_CODE) + 1, 3, '0') AS MEMBER_CODE
         FROM MEMBER_INFO;
     </entry>
@@ -58,7 +42,7 @@
         , ACTIVE_STATUS = 'Y'
         WHERE MEMBER_CODE = ?
     </entry>
-    <entry key="deleteMem">
+    <entry key="deleteMember">
         DELETE
         FROM MEMBER_INFO
         WHERE MEMBER_CODE = ?

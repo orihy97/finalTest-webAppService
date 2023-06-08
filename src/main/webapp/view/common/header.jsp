@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Welcome to MVC land!</h1>
+<h1>스타크래프트 멤버 관리!</h1>
 </body>
 </html>

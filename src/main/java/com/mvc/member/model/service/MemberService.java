@@ -12,11 +12,11 @@ public class MemberService {
 
     private MemberDAO memberDAO;
 
-    public MemberDTO selectOneMemberById(int memberCode) {
+    public MemberDTO selectOneMemberById(String memberCode) {
         SqlSession sqlSession = getSqlSession();
 
         memberDAO = sqlSession.getMapper(MemberDAO.class);
-        MemberDTO selectedMember = memberDAO.selectMemberById(memberCode);
+        MemberDTO selectedMember = memberDAO.selectMemberById(String.valueOf(Integer.parseInt(memberCode)));
         sqlSession.close();
 
         return selectedMember;
@@ -66,11 +66,11 @@ public class MemberService {
         return result;
     }
 
-    public boolean deleteMember(int memberCode) {
+    public boolean deleteMember(String memberCode) {
         SqlSession sqlSession = getSqlSession();
 
         memberDAO = sqlSession.getMapper(MemberDAO.class);
-        boolean result = memberDAO.deleteMember(memberCode);
+        boolean result = memberDAO.deleteMember(Integer.parseInt(memberCode));
 
         if (result) {
             sqlSession.commit();

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
 import java.util.List;
 
 @WebServlet("/member/insert")
@@ -20,44 +19,37 @@ public class InsertMemberServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         String memberName = request.getParameter("memberName");
-        String memberCode = request.getParameter("memCode");
         String birthDate = request.getParameter("birthDate");
         String divisionCode = request.getParameter("divisionCode");
         String detailInfo = request.getParameter("detailInfo");
         String contact = request.getParameter("contact");
-        int teamCode	= Integer.parseInt(request.getParameter("teamCode"));
+        String teamCode	= String.valueOf(Integer.parseInt(request.getParameter("teamCode")));
         String activeStatus	= request.getParameter("activeStatus");
-        int salary = Integer.parseInt(request.getParameter("salary"));
-        double bonus = Double.parseDouble(request.getParameter("bonus"));
-        Date hireDate = Date.valueOf(request.getParameter("hireDate"));
 
         MemberService memberService = new MemberService();
-        List<MemberDTO> newMemId = memberService.selectAllMembers();
+        List<MemberDTO> newmemberCode = memberService.selectAllMembers();
 
-        MemberDTO mem = new MemberDTO();
-        if(newMemId != null) mem.setMemberCode(newMemId);
-        mem.setMemberName(memberName);
-        mem.setMemberCode(String.valueOf(Integer.parseInt(memberCode)));
-        mem.setBirthDate(birthDate);
-        mem.setDivisionCode(divisionCode);
-        mem.setDetailInfo(detailInfo);
-        mem.setContact(contact);
-        mem.setTeamCode(String.valueOf(teamCode));
-        mem.setActiveStatus(activeStatus);
+        MemberDTO member = new MemberDTO();
+        if(newmemberCode != null) member.setMemberCode(newmemberCode);
+        member.setMemberName(memberName);
+        member.setBirthDate(birthDate);
+        member.setDivisionCode(divisionCode);
+        member.setDetailInfo(detailInfo);
+        member.setContact(contact);
+        member.setTeamCode(String.valueOf(teamCode));
+        member.setActiveStatus(activeStatus);
 
-        System.out.println("insert request mem : " + mem);
+        System.out.println("insert request member : " + member);
 
-        boolean result = memberService.insertMember(mem);
+        boolean result = memberService.insertMember(member);
 
         String path = "";
         if(result) {
-            path = "/WEB-INF/view/common/successPage.jsp";
-//			request.setAttribute("message", "신규 선수 등록에 성공하셨습니다.");
-//			response.sendRedirect(request.getContextPath() + "/WEB-INF/view/common/successPage.jsp");
+            path = "/view/common/successPage.jsp";
 
             request.setAttribute("successCode", "insertMem");
         } else {
-            path = "/WEB-INF/view/common/errorPage.jsp";
+            path = "/view/common/errorPage.jsp";
             request.setAttribute("message", "신규 선수 등록에 실패하셨습니다.");
         }
 

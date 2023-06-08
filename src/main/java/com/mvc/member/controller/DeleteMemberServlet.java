@@ -16,17 +16,19 @@ public class DeleteMemberServlet extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
-        int memberId = Integer.parseInt(request.getParameter("memberId"));
+        String memberCode = String.valueOf(Integer.parseInt(request.getParameter("memberCode")));
+        MemberService memberService=new MemberService();
 
-        boolean result = new MemberService().deleteMember(memberId);
+        boolean result = memberService.deleteMember(memberCode);
 
         String path = "";
         if (result) {
-            path = "/WEB-INF/view/common/errorPage.jsp";
-            request.setAttribute("message", "선수 삭제 실패!");
+            path = "/view/common/successPage.jsp";
+            request.setAttribute("successCode", "deleteMem");
         } else {
-            path = "/WEB-INF/view/common/successPage.jsp";
-            request.setAttribute("successCode", "deleteMember");
+
+            path = "/view/common/errorPage.jsp";
+            request.setAttribute("message", "선수 삭제 실패!");
         }
 
         request.getRequestDispatcher(path).forward(request, response);

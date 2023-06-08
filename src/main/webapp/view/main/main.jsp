@@ -17,9 +17,13 @@
 
 <h3>MEMBER_INFO 테이블에서 신규 선수 정보 추가 (필요한 정보를 입력받을 수 있는 form을 만들어서 추가할 것) : /member/insert (post)</h3>
 <form action="${ pageContext.servletContext.contextPath }/member/insert" method="post">
-  선수명 : <input type="text" name="memName"><br>
+  선수명 : <input type="text" name="memberName"><br>
+  생년월일 : <input type="text" name="birthDate"><br>
+  종족코드 : <input type="text" name="divisionCode"><br>
+  세부사항 : <input type="text" name="detailInfo"><br>
   전화번호 : <input type="text" name="contact"><br>
-  주소 : <input type="text" name="memAddress"><br>
+  팀코드 : <input type="text" name="teamCode"><br>
+  활동상태 : <input type="text" name="activeStatus"><br>
 
 
   <button type="submit">등록하기</button>

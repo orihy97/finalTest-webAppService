@@ -5,6 +5,6 @@
     <title>MVC</title>
 </head>
 <body>
-<jsp:forward page="/WEB-INF/view/main/main.jsp"/>
+<jsp:forward page="/view/main/main.jsp"/>
 </body>
 </html>

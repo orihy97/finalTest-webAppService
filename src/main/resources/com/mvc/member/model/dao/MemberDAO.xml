@@ -5,17 +5,16 @@
     <resultMap id="memberResultMap" type="com.mvc.member.model.dto.MemberDTO">
         <id property="memberCode" column="MEMBER_CODE"/>
         <result property="memberName" column="MEMBER_NAME"/>
-        <result property="launchDate" column="LAUNCH_DATE"/>
         <result property="divisionCode" column="DIVISION_CODE"/>
         <result property="detailInfo" column="DETAIL_INFO"/>
-        <result property="studentQuantity" column="STUDENT_QUANTITY"/>
+        <result property="birthDate" column="BIRTH_DATE"/>
         <result property="contact" column="CONTACT"/>
         <result property="teamCode" column="TEAM_CODE"/>
         <result property="activeStatus" column="ACTIVE_STATUS"/>
     </resultMap>
 
     <select id="selectMemberById" resultMap="memberResultMap">
-        SELECT * FROM MEMBER_INFO WHERE MEMBER_CODE = #{memberId}
+        SELECT * FROM MEMBER_INFO WHERE MEMBER_CODE = #{memberCode}
     </select>
 
     <select id="selectAllMembers" resultMap="memberResultMap">

@@ -14,6 +14,7 @@ import java.util.List;
 @WebServlet("/member/list")
 public class SelectAllMembersServlet extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         MemberService memberService = new MemberService();
@@ -29,7 +30,7 @@ public class SelectAllMembersServlet extends HttpServlet {
             path = "/view/member/memberList.jsp";
             request.setAttribute("memberList", memberList);
         } else {
-            path = "/WEB-INF/common/errorPage.jsp";
+            path = "/view/common/errorPage.jsp";
             request.setAttribute("message", "멤버 목록 조회 실패!");
         }
 
