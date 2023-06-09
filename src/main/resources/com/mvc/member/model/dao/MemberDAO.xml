@@ -33,13 +33,7 @@
 
     <update id="updateMember">
         UPDATE MEMBER_INFO
-        SET MEMBER_NAME = #{memberName},
-            BIRTH_DATE = #{birthDate},
-            DIVISION_CODE = #{divisionCode},
-            DETAIL_INFO = #{detailInfo},
-            CONTACT = #{contact},
-            TEAM_CODE = #{teamCode},
-            ACTIVE_STATUS = #{activeStatus}
+        SET  BIRTH_DATE = #{birthDate}
         WHERE MEMBER_CODE = #{memberCode}
     </update>
 

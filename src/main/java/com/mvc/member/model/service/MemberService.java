@@ -53,6 +53,10 @@ public class MemberService {
         SqlSession sqlSession = getSqlSession();
 
         memberDAO = sqlSession.getMapper(MemberDAO.class);
+        if (member.getMemberName() == null) {
+            member.setMemberName("Default Name");
+        }
+        
         boolean result = memberDAO.updateMember(member);
 
         if (result) {

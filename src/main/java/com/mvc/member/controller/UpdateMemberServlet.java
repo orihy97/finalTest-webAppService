@@ -23,16 +23,18 @@ public class UpdateMemberServlet extends HttpServlet {
 
         String memberCode = request.getParameter("memberCode");
         String birthDate=request.getParameter("birthDate");
+
         MemberDTO member = new MemberDTO();
         member.setMemberCode(memberCode);
         member.setBirthDate(birthDate);
+
         MemberService memberService=new MemberService();
         boolean result = memberService.updateMember(member);
 
         String path = "";
         if(result) {
             path = "/view/common/successPage.jsp";
-            request.setAttribute("successCode", "updateMember");
+            request.setAttribute("successCode", "updateMem");
         } else {
             path = "/view/common/errorPage.jsp";
             request.setAttribute("message", "회원 정보 수정 실패!");
