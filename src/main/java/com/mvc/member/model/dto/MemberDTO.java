@@ -105,7 +105,4 @@ public class MemberDTO implements java.io.Serializable {
                 ", activeStatus='" + activeStatus + '\'' +
                 '}';
     }
-
-    public void setMemberCode(List<MemberDTO> newmemberCode) {
-    }
 }

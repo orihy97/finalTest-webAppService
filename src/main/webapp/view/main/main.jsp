@@ -33,7 +33,7 @@
 <form action="${ pageContext.servletContext.contextPath }/member/update" method="post">
   선수코드 : <input type="text" name="memberCode"><br>
   생년월일 : <input type="text" name="birthDate"><br>
-  <button type="submit">Member 생년월일</button>
+  <button type="submit">생년월일 수정</button>
 </form>
 
 <h3>MEMBER_INFO 테이블에서 Member 정보 삭제 (Member코드 입력 받아 Member코드와 일치하는 행 삭제) : /member/delete (post)</h3>

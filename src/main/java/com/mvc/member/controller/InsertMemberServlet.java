@@ -30,7 +30,7 @@ public class InsertMemberServlet extends HttpServlet {
         List<MemberDTO> newmemberCode = memberService.selectAllMembers();
 
         MemberDTO member = new MemberDTO();
-        if(newmemberCode != null) member.setMemberCode(newmemberCode);
+        if(newmemberCode != null) member.setMemberCode(newmemberCode.toString());
         member.setMemberName(memberName);
         member.setBirthDate(birthDate);
         member.setDivisionCode(divisionCode);
